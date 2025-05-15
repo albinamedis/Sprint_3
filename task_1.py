@@ -11,19 +11,19 @@ class OnlineSalesRegisterCollector():
     @property
     def name_items(self):
         return self.__name_items
-    
+
     @property
     def number_items(self):
         return self.__number_items
-        
+
     @property
     def item_price(self):
         return self.__item_price
-        
+
     @property
     def tax_rate(self):
         return self.__tax_rate
-        
+
     @number_items.setter
     def number_items(self, kol):
         if kol>=0:
@@ -73,7 +73,7 @@ class OnlineSalesRegisterCollector():
         if len(total) > 10:
             sum_check = sum_check - (sum_check * 0.1)    
         return sum_check
-        
+
 #Вычисление НДС для товаров со ставкой 20%
     def twenty_percent_tax_calculation(self):
         twenty_percent_tax = []
@@ -111,12 +111,12 @@ class OnlineSalesRegisterCollector():
             nds = sum_check * 0.1
             print(len(total), sum_check, nds)
         return nds
-        
+
 #Общая сумму налогов
     def total_tax(self):
         all_nds = self.twenty_percent_tax_calculation() + self.ten_percent_tax_calculation()
         return all_nds
-        
+
 #номер телефона покупателя
     def get_telephone_number(self, telephone_number):
         try:
@@ -128,38 +128,4 @@ class OnlineSalesRegisterCollector():
                 print(f'+7{telephone_number}')
         except ValueError as e:
             print(e)
-        
-test = OnlineSalesRegisterCollector()
-#print(test.add_item_to_cheque(''))
-#print(test.add_item_to_cheque('apple'))
-#print(test.add_item_to_cheque('book'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
-print(test.add_item_to_cheque('кола'))
 
-print(test.add_item_to_cheque('молоко'))
-#print(test.add_item_to_cheque('молоко'))
-#print(test.add_item_to_cheque('молоко'))
-
-
-
-#print(test.add_item_to_cheque('12345678901234567890123456789012345678901'))
-
-#print(test.number_items)
-
-#print(test.delete_item_from_check('тарелка'))
-#print(test.name_items, test.number_items)
-#print(test.delete_item_from_check('чипсы'))
-print(test.name_items, test.number_items)
-print(test.check_amount())
-print(test.twenty_percent_tax_calculation())
-print(test.ten_percent_tax_calculation())
-print(test.total_tax())
-test.get_telephone_number(1234567890)
