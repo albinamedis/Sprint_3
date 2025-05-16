@@ -87,10 +87,8 @@ class OnlineSalesRegisterCollector():
                     sum_check = sum_check + self.item_price[key]
         if len(self.name_items) > 10:
             nds = (sum_check - (sum_check * 0.1)) * 0.2
-            print(len(total), sum_check, nds)
         else:
             nds = sum_check * 0.2
-            print(len(total), sum_check, nds)
         return nds
 
 #Вычисление НДС для товаров со ставкой 20%    
@@ -106,10 +104,8 @@ class OnlineSalesRegisterCollector():
                     sum_check = sum_check + self.item_price[key]
         if len(self.name_items) > 10:
             nds = (sum_check - (sum_check * 0.1)) * 0.1
-            print(len(total), sum_check, nds)
         else:
             nds = sum_check * 0.1
-            print(len(total), sum_check, nds)
         return nds
 
 #Общая сумму налогов
@@ -120,12 +116,11 @@ class OnlineSalesRegisterCollector():
 #номер телефона покупателя
     def get_telephone_number(self, telephone_number):
         try:
-            if telephone_number % 2 > 0:
+            if type(telephone_number).__name__ != int:
                 raise ValueError('Необходимо ввести цифры')
             elif len(str(telephone_number)) > 10:
                 raise ValueError('Необходимо ввести 10 цифр после "+7"')
             else:
-                print(f'+7{telephone_number}')
+                return (f'+7{telephone_number}')
         except ValueError as e:
             print(e)
-
