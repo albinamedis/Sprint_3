@@ -124,3 +124,4 @@ class OnlineSalesRegisterCollector():
                 return (f'+7{telephone_number}')
         except ValueError as e:
             print(e)
+            
