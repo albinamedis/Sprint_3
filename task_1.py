@@ -116,12 +116,11 @@ class OnlineSalesRegisterCollector():
 #номер телефона покупателя
     def get_telephone_number(self, telephone_number):
         try:
-            if type(telephone_number).__name__ != int:
+            if (type(telephone_number).__name__) != 'int':
                 raise ValueError('Необходимо ввести цифры')
             elif len(str(telephone_number)) > 10:
                 raise ValueError('Необходимо ввести 10 цифр после "+7"')
             else:
                 return (f'+7{telephone_number}')
         except ValueError as e:
-            print(e)
-            
+            return e
